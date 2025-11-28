@@ -5,7 +5,7 @@ import numpy as np
 from pathlib import Path
 
 st.set_page_config(page_title="NLP Classifier — Emojis", layout="wide")
-st.title("NLP Classifier — Clean Labels + Emojis")
+st.title("~NLP Classifier ~")
 
 # --- paths ---
 TFIDF_PATH = Path("tfidf_vectorizer.joblib")
@@ -186,3 +186,4 @@ with right:
 # footer
 st.markdown("---")
 st.caption("Mapping heuristics convert model labels (even numeric or dataset-specific) into the five clean categories shown above.")
+
