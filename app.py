@@ -124,7 +124,7 @@ with left:
 
     st.markdown("**SPORTS** — The star striker scored two goals and led the team to a championship victory.")
     st.markdown("**POLITICS** — The parliament passed a new bill aimed at improving national economic stability.")
-    st.markdown("**TECH** — Researchers announced a breakthrough in artificial intelligence that boosts processing speed.")
+    st.markdown("**TECH** — Natural Language Processing (NLP) is a branch of AI that enables computers to understand, interpret, and generate human language.")
     st.markdown("**MEDICAL** — Doctors reported that the new treatment significantly improved patient recovery rates.")
     st.markdown("**ATHEISM** — Online forums saw heated debates about religion and secular beliefs today.")
 
@@ -203,3 +203,4 @@ with right:
 # footer
 st.markdown("---")
 st.caption("✨ Enhanced UI with animations — predictions and logic remain unchanged.")
+
