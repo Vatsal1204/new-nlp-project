@@ -1,4 +1,4 @@
-# app.py — NLP Classifier with emojis & friendly UI
+# app.py — NLP Classifier with emojis (quick-test buttons removed)
 import streamlit as st
 import joblib
 import numpy as np
@@ -133,29 +133,11 @@ with left:
 
 with right:
     st.subheader("Classify text")
-    # use session_state for the input so quick buttons can set it
+    # use session_state for the input so the content persists if the page reruns
     if "input_text" not in st.session_state:
         st.session_state["input_text"] = ""
     text = st.text_area("Enter text:", value=st.session_state["input_text"], height=180, key="main_input")
     expected = st.selectbox("I expect (optional)", ["(none)"] + [lbl.upper() for lbl in CLEAN_LABELS])
-
-    col_a, col_b, col_c = st.columns([1,1,1])
-    if col_a.button("Try SPORTS"):
-        st.session_state["main_input"] = "The star striker scored two goals and led the team to a championship victory."
-        st.experimental_rerun()
-    if col_b.button("Try POLITICS"):
-        st.session_state["main_input"] = "The parliament passed a new bill aimed at improving national economic stability."
-        st.experimental_rerun()
-    if col_c.button("Try TECH"):
-        st.session_state["main_input"] = "Researchers announced a breakthrough in artificial intelligence that boosts processing speed."
-        st.experimental_rerun()
-    col_d, col_e = st.columns([1,1])
-    if col_d.button("Try MEDICAL"):
-        st.session_state["main_input"] = "Doctors reported that the new treatment significantly improved patient recovery rates."
-        st.experimental_rerun()
-    if col_e.button("Try ATHEISM"):
-        st.session_state["main_input"] = "Online forums saw heated debates about religion and secular beliefs today."
-        st.experimental_rerun()
 
     st.markdown("---")
 
@@ -182,7 +164,7 @@ with right:
             conf = get_confidence(model, X)
             conf_str = f"{conf:.2f}" if conf is not None else "N/A"
 
-            # show with emoji and colored box
+            # show with emoji and header
             emoji = EMOJI_MAP.get(clean_label, "")
             st.markdown(f"### {emoji} Predicted category: **{clean_label.upper()}**")
             st.caption(f"(confidence: {conf_str})")
